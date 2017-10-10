@@ -1,0 +1,96 @@
+\documentclass[skripsi]{ugmskripsi}
+
+\titleind{Analisis data pada estimasi matchmaking rating dota 2 dari opendota.com}
+
+\titleeng{Analysis of data on the result of the estimation matchmaking rating dota 2 from opendota.com }
+
+\fullname{GAMA CANDRA TRI KARTIKA}
+
+\idnum{15/378060/PA/16535}
+
+\examdate{11 Oktober 2017}
+
+\degree{Bachelor}
+
+\yearsubmit{2017}
+
+\program{Ilmu Komputer}
+
+\headprogram{Drs. Agus Harjoko, M.Sc., Ph.D.}
+
+\dept{Ilmu Komputer dan Elektronika}
+
+\begin{document}
+
+\cover
+
+\titlepageind 
+
+\declarepage
+
+\setcounter{chapter}{1}
+\chapter{TINJAUAN PUSTAKA}
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\emph{Defense of The Ancients 2} (DOTA 2) adalah sebuah permainan berjenis \emph{Mutiplayer Online Battle Arena} (MOBA) dan merupakan pengembangan dari permainan Defense of the Ancient (DOTA). DOTA Berawal dari rilisnya Warcraft 3 pada tahun 2003, sebuah modder dikenal dengan \emph{Eul} ingin membuat suatu map yang bisa mendukung hingga 10 pemain. Inti dari permainan ini sendiri yaitu mengendalikan satu object yang disebut \emph{hero} yang dikendalikan untuk menghancurkan markas musuh. Pada tahun 2009, dibuatlah Dota secara open source untuk pengembang lainnya. Dota terus menerus di modifikasi oleh Abdul Ismail yang sering dikenal dalam dunia game sebagai \emph{icefrog}. Pada bulan Oktober 2010, Perusahaan Valve yang dimiliki oleh Gabe Newell mengumumkan Dota 2 setelah membeli merk dagang 'Dota'. 
+
+Dota 2 adalah game video multiplayer online battle arena (MOBA) dimana dua tim dari lima pemain bersaing untuk menghancurkan sebuah bangunan yang dipertahankan oleh tim lawan yang dikenal sebagai "Ancient". Seperti dalam Dota, permainan dikendalikan menggunakan kendali \emph{real-time strategy}, dan disajikan pada satu peta dalam perspektif isometrik tiga dimensi. 10 pemain masing-masing mengendalikan salah satu dari 113 karakter permainan yang dimainkan, yang dikenal sebagai "hero", masing-masing memiliki desain, dan kemampuan masing-masing. Hero dibagi menjadi dua peran utama, yang dikenal sebagai "core" dan "support". \emph{Core} memulai setiap pertandingan dengan lemah, namun bisa menjadi lebih kuat di akhir permainan, sehingga bisa membawa tim mereka meraih kemenangan. \emph{Support}  umumnya tidak memiliki kemampuan yang kuat, namun memiliki kemampuan untuk memberikan bantuan. Pemain memilih hero mereka selama fase \emph{pick} sebeum permainan dimulai, di mana mereka juga dapat mendiskusikan strategi dengan rekan tim mereka. 
+
+Pada tahun 2011, Valve merilis turnamen \emph{The International} dengan total hadiah \$1,600,000 di Cologne, Jerman. Turnamen ini lalu diadakan setiap tahunnya dengan tempat yang berbeda-beda. Hal inilah yang membuat semakin banyaknya pemain professional yang memainkan Dota 2, dengan catatan rata-rata 10 juta ID unik yang masuk ke Dota 2 setiap bulannya \citep{wdn}. Lalu pada tahun 2013, Dota mengumumkan sistem \emph{Matchmaking Rating}(MMR). Dota 2 menilai MMR pemain dengan menghitung nilai dari jumlah kemenangan dan kekalahan. Jika pemain belum memiliki nilai MMR, maka Dota 2 akan memberikan penilaian tentang nilai MMR sebanyak 20 game. Tidak hanya itu, pemain juga harus memiliki level minimal 20 level. MMR juga memiliki 2 jenis yaitu \emph{Solo MMR} dan \emph{Party MMR}.
+
+Ada banyak faktor acak yang mempengaruhi hasil permainan. Algoritma manapun akan sulit mengukur kemampuan manusia. Misalnya, seorang pemain tidak sedang berada dalam kondisi puncaknya atau sedang mempelajari  hero saat memasuki game. Walaupun ia mempunyai kemampuan yang setara dengan pemain lainnya, ia tidak akan bisa bermain dengan 100 \% kemampuannya sehingga game akan berlangsung tidak imbang. Selain itu, permainan Dota dapat ditentukan oleh kesalahan yang sangat kecil. Semakin tinggi level game-nya, semakin cepat kesalahan tersebut dihukum dan dimanfaatkan menjadi kemenangan. Perusahaan Valve sendiri masih berusaha dengan baik untuk menilai MMR kepada pemain.
+
+Di zaman modern yang sudah semakin banyak dataset di internet, maka kemampuan \emph{Machine Learning} sangat dibutuhkan dalam banyak bidang salah satunya yaitu video game. Di saat banyaknya dataset tersebut, maka seseorang akan menganalisa data tersebut berdasarkan variabel yang menurut mereka "terbaik" \citep{dgd}. Valve sebagai perusahaan pemilik Dota 2 memberikan \emph{Web API} untuk pengembang mendapatkan dataset yang mereka perlukan \citep{sng}. Salah satu metode untuk mengukur kemampuan pemain untuk dapat menentukan nilai MMR mereka adalah menganalisa pola topological berdasarkan luas, inertia, diameter, jarak dan fitur-fitur lain yang didapatkan dari posisi dan pergerakan pemain di map untuk mengetahui bagaimana hubungannya dalam kemampuan pemain. Cara yang lain adalah menganalisa pola "pertarungan" dengan akurasi data sebesar 80 \% yang telah dilakukan oleh \citep{drc}. Cara termudah yang biasanya website tentang analisis MMR lainnya yaitu menggunakan hitungan rata-rata dan standar deviasi dari seluruh pemain yang ada pada pertandingan tersebut.
+
+\emph{kal} adalah orang pertama yang secara implisit memperkenalkan peran dari hero sebagai fitur dalam model prediksi kemampuan. Dia mengambil 30.426 pertandingan yang disaring oleh MMR untuk memilih hanya pemain terampil dan
+menggunakan sebuah metode Algoritma Genetika dan Regresi Logistik pada 220 pertandingan. Regresi Logistik sendiri memperoleh akurasi 69,42 \% dan metode dengan Algoritma Genetika dan Regresi Logistik mendekati akurasi 74,1 \% pada
+set tes. Kurangnya informasi  dan sampel yang lebih detail pada pertandingan, dipilih untuk Algoritma genetika, menghambat performa dari metode-metode tersebut.
+
+Upaya lain untuk memasukkan interaksi antar hero dilakukan oleh \citep{kin} mengambil 62.000 pertandingan dengan tingkat kemampuan "very high skill". Tanpa menghitung pemain yang kelaur saat pertandingan berlangsung dan dengan durasi minimal 10 menit dan dibagi menjadi 52.000 pertandingan untuk data "train", 5.000 untuk data "test" dan 5.000 untuk validasi. Pada data ini mereka mencoba Logistic Regression dan Random Forest dengan fitur persentase kemenangan dari untuk Radiant and Dire. Fitur secara teori bisa mendapatkan hubungan seperti "formasi",
+sinergi dan "counter" dan masing-masing dari hal tersebut meningkatkan akurasi model hingga 72,9 \%. Regresi Logistik dan Random Forest pada data  hanya mendapat akurasi  72,9 \%. Untuk Regresi Logistik dan gabungan Random Forest  memberi mereka akurasi 67 \% setelah mengatur parameter. Perlu disebutkan bahwa baseline mereka, termasuk persentase kemenangan gabungan  untuk hero, memiliki akurasi 63 \%.
+
+\begin{thebibliography}{99}
+\bibitem[Sujatmiko]{sjm}
+Sujatmiko, G, 2014,\emph{Representasi kekuatan hero perempuan dalam Dota 2}, Institut Teknologi Bandung.
+
+\bibitem[Wardhana]{wdn}
+Wardhana, A. M. S., 2015, \emph{Implementasi Algoritma Genetika untuk Optimasi Pemilihan Hero Berdasarkan Hero Role dan Play Style dalam Dota 2}, Fakultas Matematika dan Ilmu Pengetahuan Alam, Universitas Gadjah Mada.
+
+\bibitem[Delgado \emph{dkk}]{dgd}
+Delgado, M. F., Cernadas, E., Barro, S., Amorim, D., 2014,  \emph{Do we Need Hundreds of Classifiers to Solve Real World Classification Problems?}, University of Santiago de Compostela, Spanyol.
+
+\bibitem[Song \emph{dkk}]{sng}
+Song, K., Zhang, T., Ma, C., 2015, \emph{Predicting the winning side of DotA2}, Stanford University.
+
+\bibitem[Rioult \emph{dkk}]{rio}
+Rioult, F., Metivier, J. P., Helleu, B., Scelles, N., Durand, C., 2014, \emph{Mining Tracks of Competitive Video Games}, Univerite de Caen Basse-Normandie, Perancis.
+
+\bibitem[Drachen \emph{dkk}]{drc}
+Drachen, A., Yancey, M., Maguire, J., Chu, D., Wang, I. Y., Mahlmann, T., Schubert, M., Klabajan, D., 2014, \emph{Skill-Based Differences in Spatio-Temporal Team Behaviour in Defence of The Ancients 2 (DotA 2)}, Aalborg University, Denmark.
+
+\bibitem[Suryantoro]{sur}
+Suryantoro, F. G. R, 2013, \emph{Implementasi Algoritma Genetika untuk Pengaturan Keseimbangan Level pada Game Berjenis Tower Defense}, Fakultas Matematika dan Ilmu Pengetahuan Alam, Universitas Gadjah Mada, Yogyakarta.
+
+\bibitem[Kalyanaraman]{kal}
+Kalyanaraman, K., 2014, \emph{To win or not to win? A prediction model to determine the outcome of a Dota2 match}, tech. rep., University of California San Diego.
+
+\bibitem[Kinkade \emph{dkk}]{kin}
+Kinkade, N., Jolla, L., Lim, K., 2015, \emph{DOTA 2 Win prediction},  tech. rep., University of California San Diego.
+
+\bibitem{1}
+https://snakesneaks.wordpress.com/2014/08/25/penjelasan-mengenai-mmr-dota-2/
+
+\bibitem{2}
+http://blog.dota2.com/2013/12/matchmaking/
+
+\bibitem{3}
+http://jordanmanullang.blogspot.co.id/2014/09/pengertian-dan-sejarah-dota-2.html
+
+\bibitem{4}
+https://infokomputer.grid.id/2016/11/fitur/machine-learning-komputer-mesin-belajar-memecahkan-masalah-penting/
+
+\end{thebibliography}
+
+\end{document}
